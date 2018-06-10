@@ -1,5 +1,5 @@
 import unittest
-from SortingAlgoPython import sortingalgos as algo
+from sortingalgos import Algorithms
 
 class TestSortingAlgos(unittest.TestCase):
     def setUp(self):
@@ -11,17 +11,26 @@ class TestSortingAlgos(unittest.TestCase):
 
     def test_BubbleSort(self):
         print("TEST BUBBLE SORT")
-        algo.Algorithms.bubble_sort(self.toBeSorted_1)
-        algo.Algorithms.bubble_sort(self.toBeSorted_2)
+        Algorithms.bubble_sort(self.toBeSorted_1)
+        Algorithms.bubble_sort(self.toBeSorted_2)
         self.assertEqual(self.toBeSorted_1,self.sorted_1)
         self.assertEqual(self.toBeSorted_2,self.sorted_2)
 
     def test_SelectionSort(self):
         print("TEST SELECTION SORT")
-        algo.Algorithms.selection_sort(self.toBeSorted_1)
-        algo.Algorithms.selection_sort(self.toBeSorted_2)
+        Algorithms.selection_sort(self.toBeSorted_1)
+        Algorithms.selection_sort(self.toBeSorted_2)
         self.assertEqual(self.toBeSorted_1,self.sorted_1)
         self.assertEqual(self.toBeSorted_2, self.sorted_2)
+
+    def test_MergeSort(self):
+        print("TEST MERGE SORT")
+        n1 = len(self.toBeSorted_1)
+        n2 = len(self.toBeSorted_2)
+        Algorithms.MergeSort(self.toBeSorted_1,0,n1)
+        Algorithms.MergeSort(self.toBeSorted_2,0,n2)
+        self.assertEqual(self.sorted_1,self.toBeSorted_1)
+        self.assertEqual(self.sorted_2, self.toBeSorted_2)
 
 if __name__ == "__main__":
     unittest.main()
